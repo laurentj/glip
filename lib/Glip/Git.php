@@ -476,6 +476,7 @@ class Git implements \ArrayAccess
    *
    * @return bool true if the branch exists, false otherwise
    */
+  #[\ReturnTypeWillChange]
   public function offsetExists($branchName)
   {
     $branch = $this[$branchName];
@@ -489,6 +490,7 @@ class Git implements \ArrayAccess
    *
    * @return GitBranch The existing or a new branch
    */
+  #[\ReturnTypeWillChange]
   public function offsetGet($branchName)
   {
     return $this->getBranch($branchName);
@@ -501,6 +503,7 @@ class Git implements \ArrayAccess
    * @param GitCommit $commit The commit to update the branch to
    *
    */
+  #[\ReturnTypeWillChange]
   public function offsetSet($branchName, $commit)
   {
     if (!$commit instanceof GitCommit)
@@ -516,6 +519,7 @@ class Git implements \ArrayAccess
    *
    * @param string $branchName
    */
+  #[\ReturnTypeWillChange]
   public function offsetUnset($branchName)
   {
     throw new \Exception('Cannot unset a branch');

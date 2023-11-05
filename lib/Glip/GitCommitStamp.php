@@ -27,7 +27,7 @@ class GitCommitStamp
     public $time;
     public $offset;
 
-  public function __construct($name = null, $email = null)
+  public function __construct($name = '', $email = '')
   {
     $name = trim($name);
     if (empty($name))

@@ -154,6 +154,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @return int The number of array
    */
+  #[\ReturnTypeWillChange]
   public function count()
   {
     return count($this->parts);
@@ -162,6 +163,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
   /**
    * Reset the parts array to the beginning (implements the Iterator interface).
    */
+  #[\ReturnTypeWillChange]
   public function rewind()
   {
     reset($this->parts);
@@ -173,6 +175,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @return int position of the key
    */
+  #[\ReturnTypeWillChange]
   public function key()
   {
     return key($this->parts);
@@ -183,6 +186,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @return mixed The part string
    */
+  #[\ReturnTypeWillChange]
   public function current()
   {
     return current($this->parts);
@@ -191,6 +195,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
   /**
    * Moves to the next part (implements the Iterator interface).
    */
+  #[\ReturnTypeWillChange]
   public function next()
   {
     next($this->parts);
@@ -202,6 +207,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @return boolean The validity of the current element; true if it is valid
    */
+  #[\ReturnTypeWillChange]
   public function valid()
   {
     return ($this->partsCount > 0);
@@ -214,6 +220,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @return bool true if the error exists, false otherwise
    */
+  #[\ReturnTypeWillChange]
   public function offsetExists($index)
   {
     if (count($this->parts) == 0)
@@ -234,6 +241,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @return string
    */
+  #[\ReturnTypeWillChange]
   public function offsetGet($index)
   {
     if (count($this->parts) == 0)
@@ -254,6 +262,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    * @param string $value
    *
    */
+  #[\ReturnTypeWillChange]
   public function offsetSet($index, $value)
   {
     if (count($this->parts) == 0)
@@ -291,6 +300,7 @@ class GitPath implements \ArrayAccess, \Iterator, \Countable
    *
    * @param int $index
    */
+  #[\ReturnTypeWillChange]
   public function offsetUnset($index)
   {
     $this->splice($index);

@@ -268,6 +268,7 @@ class GitBranch implements \ArrayAccess
    *
    * @return bool true if the error exists, false otherwise
    */
+  #[\ReturnTypeWillChange]
   public function offsetExists($path)
   {
     $path = new GitPath($path);
@@ -282,6 +283,7 @@ class GitBranch implements \ArrayAccess
    *
    * @return GitBlob|GitTree
    */
+  #[\ReturnTypeWillChange]
   public function offsetGet($path)
   {
     $path = new GitPath($path);
@@ -331,6 +333,7 @@ class GitBranch implements \ArrayAccess
    * @param string $data
    *
    */
+  #[\ReturnTypeWillChange]
   public function offsetSet($path, $data)
   {
     $path = new GitPath($path);
@@ -342,6 +345,7 @@ class GitBranch implements \ArrayAccess
    *
    * @param string $path
    */
+  #[\ReturnTypeWillChange]
   public function offsetUnset($path)
   {
     $path = new GitPath($path);

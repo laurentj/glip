@@ -207,6 +207,7 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
    *
    * @return bool true if the error exists, false otherwise
    */
+  #[\ReturnTypeWillChange]
   public function offsetExists($path)
   {
     $path = new GitPath($path);
@@ -233,13 +234,14 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
   /**
    * Returns the node associated with the supplied path (implements the ArrayAccess interface).
    *
-   * @param  GitPath $path  The path of the object to get
+   * @param  string $offset  The path of the object to get
    *
    * @return GitObject object at the path, or null if the object does not exist
    */
-  public function offsetGet($path)
+  #[\ReturnTypeWillChange]
+  public function offsetGet($offset)
   {
-    $path = new GitPath($path);
+    $path = new GitPath($offset);
 
     if ($path->isRoot())
     {
@@ -263,7 +265,7 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
       throw new \Exception(sprintf('Invalid path supplied: \'%s\', object is of class %s',(string)$path, get_class($object)));
     }
 
-    return $object[$path->getShifted()];
+    return $object[(string) $path->getShifted()];
   }
 
   /**
@@ -273,6 +275,7 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
    * @param GitBlob $object
    *
    */
+  #[\ReturnTypeWillChange]
   public function offsetSet($path, $object)
   {
     $path = new GitPath($path);
@@ -329,6 +332,7 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
    *
    * @param string $path
    */
+  #[\ReturnTypeWillChange]
   public function offsetUnset($path)
   {
     $path = new GitPath($path);
@@ -369,7 +373,8 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
    *
    * @return \ArrayIterator
    * @author The Young Shepherd
-   **/
+   */
+  #[\ReturnTypeWillChange]
   public function getIterator() {
     $beSureDataIsLoaded = $this->nodes;
     return new \ArrayIterator($this->data['nodes']);
@@ -381,6 +386,7 @@ class GitTree extends GitPathObject implements \ArrayAccess, \IteratorAggregate,
    * @return int
    * @author The Young Shepherd
    **/
+  #[\ReturnTypeWillChange]
   public function count()
   {
     return count($this->nodes);

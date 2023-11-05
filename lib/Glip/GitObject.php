@@ -245,6 +245,14 @@ abstract class GitObject implements \Serializable
   abstract protected function _serialize();
 
   /**
+   * @return array
+   */
+  public function __serialize()
+  {
+      throw new \Exception("Not implemented");
+  }
+
+  /**
    * Populate this object with values from its string representation.
    *
    * Note that the types of $this and the serialized object in $data have to
@@ -258,7 +266,13 @@ abstract class GitObject implements \Serializable
     throw new \Exception('Unserialize neeeds to be overridden');
   }
 
-  /**
+  public function __unserialize(array $serialized)
+  {
+    throw new \Exception("Not implemented");
+  }
+
+
+    /**
    * __tostring prints the git representation of this object
    * please note that is locks the object, as it calls getSha()
    *

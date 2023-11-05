@@ -250,6 +250,7 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    *
    * @return bool true if the error exists, false otherwise
    */
+  #[\ReturnTypeWillChange]
   public function offsetExists($path)
   {
     return $this->tree->offsetExists($path);
@@ -262,6 +263,7 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    *
    * @return string
    */
+  #[\ReturnTypeWillChange]
   public function offsetGet($path)
   {
     return $this->tree->offsetGet($path);
@@ -274,6 +276,7 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    * @param object $object
    *
    */
+  #[\ReturnTypeWillChange]
   public function offsetSet($path, $object)
   {
     if (!$object instanceof GitBlob)
@@ -290,6 +293,7 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    *
    * @param string $path
    */
+  #[\ReturnTypeWillChange]
   public function offsetUnset($path)
   {
     $this->tree->offsetUnset($path);
@@ -300,7 +304,8 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    *
    * @return void
    * @author The Young Shepherd
-   **/
+   */
+  #[\ReturnTypeWillChange]
   public function getIterator() {
     return $this->tree->getIterator();
   }
@@ -311,6 +316,7 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    * @return void
    * @author The Young Shepherd
    **/
+  #[\ReturnTypeWillChange]
   public function count()
   {
     return $this->tree->count();
