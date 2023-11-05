@@ -1,6 +1,10 @@
 CHANGELOG
 ============
 
+## 1.0.2
+
+* Fix compatibility issues with PHP 8.1
+
 ## 1.0.1
 
 * Fix compatibility issues with PHP 7.4
