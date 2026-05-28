@@ -1,6 +1,11 @@
 CHANGELOG
 ============
 
+## 1.1.0
+
+* Fix compatibility issues with PHP 8.4
+* The minimal PHP version is now PHP 7.4
+
 ## 1.0.2
 
 * Fix compatibility issues with PHP 8.1
