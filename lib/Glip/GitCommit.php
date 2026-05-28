@@ -162,7 +162,7 @@ class GitCommit extends GitObject implements \ArrayAccess, \IteratorAggregate, \
    * @param GitCommit $commitTip unused (deprecated parameter)
    * @returns GitCommit[]
    */
-  public function getHistory(GitCommit $commitTip = null)
+  public function getHistory(?GitCommit $commitTip)
   {
     if (is_null($this->commitHistory))
     {
